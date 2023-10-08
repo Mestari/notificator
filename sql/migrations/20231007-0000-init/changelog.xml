@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+            http://www.liquibase.org/xml/ns/dbchangelog-ext
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+  <!-- Core schema of the service: schema, roles, basic types -->
+  <changeSet id="init:project_schema" author="vladimir.p">
+  	<preConditions onFail="HALT">
+       <changeLogPropertyDefined property="karma_owner_role"/>
+       <changeLogPropertyDefined property="karma_viewer_role"/>
+    </preConditions>
+
+    <comment>
+      Project init schema
+    </comment>
+
+    <sqlFile path="initial-schema.sql" relativeToChangelogFile="true" splitStatements="false" endDelimiter=""/>
+
+    <rollback>
+      <sqlFile path="rollback.sql" relativeToChangelogFile="true" splitStatements="false" endDelimiter=""/>
+    </rollback>
+  </changeSet>
+</databaseChangeLog>

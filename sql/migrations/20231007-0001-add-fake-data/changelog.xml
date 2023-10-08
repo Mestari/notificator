@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+            http://www.liquibase.org/xml/ns/dbchangelog-ext
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="mgrt:20231007-add-fake-data" author="vladimir.p">
+      <comment>
+        Add fake data to table users
+      </comment>
+
+      <sqlFile path="./add-data.sql" relativeToChangelogFile="true" splitStatements="false" endDelimiter=""/>
+
+      <rollback>
+        <sql>
+          TRUNCATE TABLE users CASCADE;
+        </sql>
+      </rollback>
+    </changeSet>
+</databaseChangeLog>

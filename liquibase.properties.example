@@ -1,0 +1,12 @@
+classpath: /usr/local/Cellar/liquibase/4.7.0/postgresql-42.2.24.jar
+driver: org.postgresql.Driver
+url: jdbc:postgresql:karma8_test
+username: karma8_liquibase
+password: 6EF285A94D5D&B4E8FF192711
+
+changeLogFile: ./sql/changelog.xml
+
+liquibase.hub.mode=off
+
+parameter.karma_owner_role: karma8_owner
+parameter.karma_viewer_role: karma8_viewer

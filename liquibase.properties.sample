@@ -1,0 +1,12 @@
+#classpath: <refer_to_JDBC_driver_file>
+driver: org.postgresql.Driver
+url: jdbc:postgresql:<db_name>
+username: <karma8_liquibase_user>
+password: <aPassword>
+
+changeLogFile: ./sql/changelog.xml
+
+liquibase.hub.mode=off
+
+parameter.karma_owner_role: karma_owner
+parameter.karma_viewer_role: karma_viewer
