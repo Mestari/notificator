@@ -77,6 +77,8 @@ CREATE TABLE IF NOT EXISTS public.sent_letters (
 
 CREATE INDEX IF NOT EXISTS sent_letters_email_idx
     ON public.sent_letters(email);
+CREATE INDEX IF NOT EXISTS sent_letters_created_at_type_idx
+    ON public.sent_letters(created_at, type);
 
 ALTER TABLE public.sent_letters OWNER TO ${karma_owner_role};
 
